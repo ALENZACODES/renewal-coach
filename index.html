@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Renewal Coach uses on-device NLP to read a synthetic renewal notice, extract key facts, and build a plain checklist beside Bank of Canada policy rates." />
+  <title>Renewal Coach · On-device notice helper</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    textarea { width:100%; min-height:220px; padding:0.75rem; border:1px solid var(--border); border-radius:8px; font:inherit; line-height:1.45; }
+    canvas { width:100%; height:200px; border:1px solid var(--border); border-radius:8px; background:#fff; }
+    .chip { display:inline-block; background:var(--soft); color:var(--penn-blue); font-weight:700; border-radius:999px; padding:0.35rem 0.8rem; margin-right:0.4rem; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="banner">
+    <div class="banner-inner">
+      <h1>Renewal Coach</h1>
+      <p>Paste a renewal notice (try the synthetic samples). On-device NLP classifies it, pulls dates, money and rates, writes a plain checklist, and shows the Bank of Canada policy rate for context. General information only.</p>
+      <span class="pill">Built for AI OpenBuild</span>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="card">
+      <div class="actions" style="margin-top:0;">
+        <button type="button" class="secondary" id="btn-clear">Clear sample</button>
+        <button type="button" class="secondary" id="btn-messy">Messy sample</button>
+        <button type="button" class="secondary" id="btn-fail">Disclosed failure case</button>
+        <button type="button" class="primary" id="btn-analyze">Analyze</button>
+      </div>
+      <label for="notice">Notice text</label>
+      <textarea id="notice" spellcheck="true"></textarea>
+      <p class="meta">Samples are synthetic. Nothing you paste leaves this page.</p>
+    </section>
+
+    <div class="grid two" style="margin-top:1rem;">
+      <section class="card">
+        <h2>On-device NLP</h2>
+        <p><span class="chip" id="class-label">—</span> <span class="chip" id="confidence">—</span></p>
+        <p class="meta" id="hits"></p>
+        <h3>Extracted entities</h3>
+        <ul id="entities"></ul>
+        <h3>Extractive summary</h3>
+        <ul id="summary"></ul>
+        <h3>Plain checklist</h3>
+        <ol id="checklist"></ol>
+      </section>
+      <section class="card">
+        <h2>Policy rate context</h2>
+        <p class="meta">Bank of Canada target for the overnight rate (V39079)</p>
+        <p><strong id="policy-now">—</strong></p>
+        <canvas id="chart" role="img" aria-label="Policy rate chart"></canvas>
+        <div class="alert" role="note" style="margin-top:1rem;">
+          <strong>Disclosed failure case:</strong> the lunch-menu sample is classified as not a renewal notice and the checklist tells you to paste real letter text. That keeps the assistant honest when AI confidence is low.
+        </div>
+        <h3>How the AI works</h3>
+        <p>A local rule-and-feature pipeline scores renewal language, extracts money, rates, dates and phones with patterns, ranks sentences for a short summary, then builds the checklist. No cloud model and no API key.</p>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:1rem;">
+      <h2>Sources and limits</h2>
+      <ul>
+        <li><a href="https://www.bankofcanada.ca/valet/observations/V39079/json" rel="noopener noreferrer">Bank of Canada Valet · V39079</a></li>
+        <li><a href="https://www.bankofcanada.ca/terms/" rel="noopener noreferrer">Bank of Canada terms</a></li>
+      </ul>
+      <p class="meta">Not advice. Not a lender tool. Synthetic samples only for demos.</p>
+    </section>
+    <p class="footnote">Renewal Coach · MIT License · Built by John Khan for AI OpenBuild</p>
+  </main>
+  <script src="nlp.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

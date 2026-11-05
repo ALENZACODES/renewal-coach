@@ -1,0 +1,4 @@
+FAILURE CASE (synthetic, disclosed)
+
+This file is a scanned lunch menu.
+Soup of the day. Grilled cheese. Garden salad. No rates, no renewal date, no balance.
