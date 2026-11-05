@@ -58,10 +58,10 @@
       [/renewal/, 3, "mentions renewal"],
       [/deadline|respond by|response deadline/, 2, "mentions a deadline"],
       [/balance|principal/, 2, "mentions a balance"],
-      [/rate|interest|%/, 2, "mentions a rate"],
+      [/\d(?:\.\d+)?\s*%|interest rate|annual rate/, 2, "mentions a rate"],
       [/term ends|maturity/, 2, "mentions term end"],
       [/month-to-month|variable/, 1, "mentions a fallback product"],
-      [/menu|soup|salad|grilled cheese/, -5, "looks like unrelated text"],
+      [/cafeteria|soup|salad|grilled cheese|cookie|vinaigrette/, -6, "looks like unrelated text"],
     ];
     rules.forEach(([re, w, label]) => {
       if (re.test(t)) {

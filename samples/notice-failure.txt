@@ -1,4 +1,10 @@
-FAILURE CASE (synthetic, disclosed)
+DISCLOSED FAILURE SAMPLE (synthetic)
 
-This file is a scanned lunch menu.
-Soup of the day. Grilled cheese. Garden salad. No rates, no renewal date, no balance.
+Tuesday cafeteria card
+Tomato soup
+Grilled cheese sandwich
+Garden salad with vinaigrette
+Chocolate chip cookie
+Milk or juice
+
+Please pay at the front counter. Thank you.
