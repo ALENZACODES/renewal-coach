@@ -27,6 +27,29 @@ node tests/test_nlp.mjs
 - Synthetic samples in `samples/`
 - Cached BoC V39079 in `data/policy-rate.json` (retrieved 2026-11-05 ET)
 
+## Project structure
+
+```text
+renewal-coach/
+├── data/                   # Bank of Canada series
+│   ├── bond-5yr.json
+│   └── policy-rate.json
+├── samples/                # Sample renewal notices
+│   ├── notice-clear.txt
+│   ├── notice-failure.txt
+│   └── notice-messy.txt
+├── tests/                  # Automated tests
+│   └── test_nlp.mjs
+├── app.js                  # Interface logic
+├── DEMO-SCRIPT.md          # Demo video script
+├── DEVPOST.md              # Submission write-up
+├── index.html              # Page markup
+├── LICENSE                 # Licence
+├── nlp.js                  # Renewal notice text parsing
+├── README.md               # This file
+└── styles.css              # Styles
+```
+
 ## License
 
 MIT.
